@@ -2,6 +2,9 @@ package edu.tcu.cs.hogwartsartifactsonline.system;
 
 import edu.tcu.cs.hogwartsartifactsonline.artifact.Artifact;
 import edu.tcu.cs.hogwartsartifactsonline.artifact.ArtifactRepository;
+import edu.tcu.cs.hogwartsartifactsonline.hogwartsUser.HogwartsUser;
+import edu.tcu.cs.hogwartsartifactsonline.hogwartsUser.UserRepository;
+import edu.tcu.cs.hogwartsartifactsonline.hogwartsUser.UserService;
 import edu.tcu.cs.hogwartsartifactsonline.wizard.Wizard;
 import edu.tcu.cs.hogwartsartifactsonline.wizard.WizardRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -14,9 +17,15 @@ public class DBDataInitializer implements CommandLineRunner{
 
     private final WizardRepository wizardRepository;
 
-    public DBDataInitializer(ArtifactRepository artifactRepository, WizardRepository wizardRepository) {
+    private final UserRepository userRepository;
+
+    private final UserService userService;
+
+    public DBDataInitializer(ArtifactRepository artifactRepository, WizardRepository wizardRepository, UserRepository userRepository, UserService userService) {
         this.artifactRepository = artifactRepository;
         this.wizardRepository = wizardRepository;
+        this.userRepository = userRepository;
+        this.userService = userService;
     }
 
     @Override
@@ -73,6 +82,30 @@ public class DBDataInitializer implements CommandLineRunner{
         w3.setId(3);
         w3.setName("Neville Longbottom");
         w3.addArtifact(a5);
+
+        HogwartsUser u1 = new HogwartsUser();
+        u1.setId(1);
+        u1.setUsername("John");
+        u1.setPassword("123456");
+        u1.setEnabled(true);
+        u1.setRoles("Admin User");
+
+        HogwartsUser u2 = new HogwartsUser();
+        u2.setId(2);
+        u2.setUsername("Eric");
+        u2.setPassword("654321");
+        u2.setEnabled(true);
+        u2.setRoles("User");
+
+        HogwartsUser u3 = new HogwartsUser();
+        u3.setId(3);
+        u3.setUsername("Tom");
+        u3.setPassword("qwerty");
+        u3.setEnabled(false);
+
+        this.userService.save(u1);
+        this.userService.save(u2);
+        this.userService.save(u3);
 
         wizardRepository.save(w1);
         wizardRepository.save(w2);
