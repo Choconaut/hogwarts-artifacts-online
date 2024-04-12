@@ -1,6 +1,7 @@
 package edu.tcu.cs.hogwartsartifactsonline.artifact;
 
 import edu.tcu.cs.hogwartsartifactsonline.artifact.utils.IdWorker;
+import edu.tcu.cs.hogwartsartifactsonline.system.exception.ObjectNotFoundException;
 import edu.tcu.cs.hogwartsartifactsonline.wizard.Wizard;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -67,19 +68,19 @@ class ArtifactServiceTest {
         "description": "An invisibility cloak is used to make the wearer invisible.",
         "imageUrl": "ImageUrl",
          */
-         Artifact a = new Artifact();
-         a.setId("1250808601744904192");
-         a.setName("Invisibility Cloak");
-         a.setDescription("An invisibility cloak is used to make the wearer invisible.");
-         a.setImageUrl("ImageUrl");
+        Artifact a = new Artifact();
+        a.setId("1250808601744904192");
+        a.setName("Invisibility Cloak");
+        a.setDescription("An invisibility cloak is used to make the wearer invisible.");
+        a.setImageUrl("ImageUrl");
 
-         Wizard w = new Wizard();
-         w.setId(2);
-         w.setName("Harry Potter");
+        Wizard w = new Wizard();
+        w.setId(2);
+        w.setName("Harry Potter");
 
-         a.setOwner(w);
+        a.setOwner(w);
 
-         given(artifactRepository.findById("1250808601744904192")).willReturn(Optional.of(a));
+        given(artifactRepository.findById("1250808601744904192")).willReturn(Optional.of(a));
 
         // When. Act on the target behavior. When steps should cover the method to be tested
         Artifact returnedArtifact = artifactService.findById("1250808601744904192");
@@ -104,8 +105,8 @@ class ArtifactServiceTest {
 
         // Then
         assertThat(thrown)
-                .isInstanceOf(ArtifactNotFoundExeception.class)
-                .hasMessage("Could not find artifact with ID 1250808601744904192 :(");
+                .isInstanceOf(ObjectNotFoundException.class)
+                .hasMessage("Could not find artifact with Id 1250808601744904192 :(");
         verify(artifactRepository, times(1)).findById("1250808601744904192");
     }
 
@@ -185,7 +186,7 @@ class ArtifactServiceTest {
 
         given(artifactRepository.findById("1250808601744904192")).willReturn(Optional.empty());
         // When
-        assertThrows(ArtifactNotFoundExeception.class, ()-> {
+        assertThrows(ObjectNotFoundException.class, ()-> {
             artifactService.update("1250808601744904192", update);
         });
 
@@ -219,7 +220,7 @@ class ArtifactServiceTest {
         given(artifactRepository.findById("1250808601744904192")).willReturn(Optional.empty());
 
         // When
-        assertThrows(ArtifactNotFoundExeception.class, () -> {
+        assertThrows(ObjectNotFoundException.class, () -> {
             artifactService.delete("1250808601744904192");
         });
 
