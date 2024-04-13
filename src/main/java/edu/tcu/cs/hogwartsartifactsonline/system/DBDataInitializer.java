@@ -105,7 +105,7 @@ public class DBDataInitializer implements CommandLineRunner{
 
         this.userService.save(u1);
         this.userService.save(u2);
-        this.userService.save(u3);
+//        this.userService.save(u3);
 
         wizardRepository.save(w1);
         wizardRepository.save(w2);
