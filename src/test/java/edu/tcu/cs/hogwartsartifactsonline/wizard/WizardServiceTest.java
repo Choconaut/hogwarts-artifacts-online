@@ -1,3 +1,4 @@
+
 package edu.tcu.cs.hogwartsartifactsonline.wizard;
 
 import edu.tcu.cs.hogwartsartifactsonline.artifact.Artifact;
@@ -109,7 +110,7 @@ class WizardServiceTest {
         // Then
         assertThat(thrown)
                 .isInstanceOf(ObjectNotFoundException.class)
-                .hasMessage("Could not find Wizard with Id 1 :(");
+                .hasMessage("Could not find wizard with Id 1 :(");
         verify(this.wizardRepository, times(1)).findById(Mockito.any(Integer.class));
     }
 
@@ -207,7 +208,7 @@ class WizardServiceTest {
         a.setId("1250808601744904192");
         a.setName("Invisibility Cloak");
         a.setDescription("An invisibility cloak is used to make the wearer invisible.");
-        a.setImageUrl("ImageUrl");
+        a.setImageURL("ImageUrl");
 
         Wizard w2 = new Wizard();
         w2.setId(2);
@@ -236,7 +237,7 @@ class WizardServiceTest {
         a.setId("1250808601744904192");
         a.setName("Invisibility Cloak");
         a.setDescription("An invisibility cloak is used to make the wearer invisible.");
-        a.setImageUrl("ImageUrl");
+        a.setImageURL("ImageUrl");
 
         Wizard w2 = new Wizard();
         w2.setId(2);

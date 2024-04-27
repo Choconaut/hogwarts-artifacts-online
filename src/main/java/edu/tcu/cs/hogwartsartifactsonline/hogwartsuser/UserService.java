@@ -1,4 +1,5 @@
-package edu.tcu.cs.hogwartsartifactsonline.hogwartsUser;
+
+package edu.tcu.cs.hogwartsartifactsonline.hogwartsuser;
 
 import edu.tcu.cs.hogwartsartifactsonline.system.exception.ObjectNotFoundException;
 import jakarta.transaction.Transactional;

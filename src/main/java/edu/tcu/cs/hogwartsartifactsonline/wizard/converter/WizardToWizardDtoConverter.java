@@ -1,4 +1,4 @@
-package edu.tcu.cs.hogwartsartifactsonline.wizard.dto.converter;
+package edu.tcu.cs.hogwartsartifactsonline.wizard.converter;
 
 import edu.tcu.cs.hogwartsartifactsonline.wizard.Wizard;
 import edu.tcu.cs.hogwartsartifactsonline.wizard.dto.WizardDto;
@@ -15,5 +15,4 @@ public class WizardToWizardDtoConverter implements Converter<Wizard, WizardDto> 
                                             source.getNumberOfArtifacts());
         return wizardDto;
     }
-
 }

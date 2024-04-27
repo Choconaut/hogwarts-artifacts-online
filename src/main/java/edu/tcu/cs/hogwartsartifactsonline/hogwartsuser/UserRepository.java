@@ -1,4 +1,5 @@
-package edu.tcu.cs.hogwartsartifactsonline.hogwartsUser;
+
+package edu.tcu.cs.hogwartsartifactsonline.hogwartsuser;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

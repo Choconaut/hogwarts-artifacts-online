@@ -1,8 +1,8 @@
-package edu.tcu.cs.hogwartsartifactsonline.hogwartsUser.converter;
 
+package edu.tcu.cs.hogwartsartifactsonline.hogwartsuser.converter;
 
-import edu.tcu.cs.hogwartsartifactsonline.hogwartsUser.HogwartsUser;
-import edu.tcu.cs.hogwartsartifactsonline.hogwartsUser.dto.UserDto;
+import edu.tcu.cs.hogwartsartifactsonline.hogwartsuser.HogwartsUser;
+import edu.tcu.cs.hogwartsartifactsonline.hogwartsuser.dto.UserDto;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 

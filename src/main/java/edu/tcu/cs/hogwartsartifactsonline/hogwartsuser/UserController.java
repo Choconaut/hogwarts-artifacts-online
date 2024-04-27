@@ -1,11 +1,9 @@
-package edu.tcu.cs.hogwartsartifactsonline.hogwartsUser;
 
-import edu.tcu.cs.hogwartsartifactsonline.hogwartsUser.converter.UserDtoToUserConverter;
-import edu.tcu.cs.hogwartsartifactsonline.hogwartsUser.converter.UserToUserDtoConverter;
-import edu.tcu.cs.hogwartsartifactsonline.hogwartsUser.dto.UserDto;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+package edu.tcu.cs.hogwartsartifactsonline.hogwartsuser;
 
+import edu.tcu.cs.hogwartsartifactsonline.hogwartsuser.converter.UserDtoToUserConverter;
+import edu.tcu.cs.hogwartsartifactsonline.hogwartsuser.converter.UserToUserDtoConverter;
+import edu.tcu.cs.hogwartsartifactsonline.hogwartsuser.dto.UserDto;
 import edu.tcu.cs.hogwartsartifactsonline.system.Result;
 import edu.tcu.cs.hogwartsartifactsonline.system.StatusCode;
 import jakarta.validation.Valid;

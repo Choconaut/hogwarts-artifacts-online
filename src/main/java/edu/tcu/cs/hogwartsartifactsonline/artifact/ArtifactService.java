@@ -15,6 +15,7 @@ public class ArtifactService {
 
     private final IdWorker idWorker;
 
+
     public ArtifactService(ArtifactRepository artifactRepository, IdWorker idWorker) {
         this.artifactRepository = artifactRepository;
         this.idWorker = idWorker;
@@ -36,22 +37,20 @@ public class ArtifactService {
 
     public Artifact update(String artifactId, Artifact update){
         return this.artifactRepository.findById(artifactId)
-                .map(oldArtifact ->{
+                .map(oldArtifact -> {
                     oldArtifact.setName(update.getName());
                     oldArtifact.setDescription(update.getDescription());
-                    oldArtifact.setImageUrl(update.getImageUrl());
+                    oldArtifact.setImageURL(update.getImageURL());
                     return this.artifactRepository.save(oldArtifact);
                 })
-                .orElseThrow(() -> new ObjectNotFoundException("artifact", artifactId));
+        .orElseThrow(() -> new ObjectNotFoundException("artifact", artifactId));
     }
 
     public void delete(String artifactId){
         this.artifactRepository.findById(artifactId)
-                .orElseThrow(() -> new ObjectNotFoundException("artifact", artifactId));
+                        .orElseThrow(() -> new ObjectNotFoundException("artifact", artifactId));
+
         this.artifactRepository.deleteById(artifactId);
     }
 
-    public <T> Object findAll(T any) {
-        return null;
-    }
 }

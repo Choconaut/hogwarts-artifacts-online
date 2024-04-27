@@ -17,13 +17,12 @@ public class AuthController {
 
     private final AuthService authService;
 
-
     public AuthController(AuthService authService) {
         this.authService = authService;
     }
 
     @PostMapping("/login")
-    public Result getLoginInfo(Authentication authentication) {
+    public Result getLoginInfo(Authentication authentication){
         LOGGER.debug("Authenticated user: '{}'", authentication.getName());
         return new Result(true, StatusCode.SUCCESS, "User Info and JSON Web Token", this.authService.createLoginInfo(authentication));
     }
