@@ -11,3 +11,4 @@ spring:
       base-url: /api/v1
   server:
     port: 80
+
